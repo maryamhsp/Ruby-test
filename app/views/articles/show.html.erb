@@ -1,24 +1,26 @@
-<h1><%= @article.title %></h1>
+
+
+<h1><%= @article.title %></h1>  
 
 <p><%= @article.body %></p>
 
+<% if @article.status == 'public' %>
+  <i class="bi bi-0-circle-fill" style="color:green"></i>
+  <% else %>
+  <i class="bi bi-0-circle-fill" style="color:red"></i>
+<% end %>
+<br/>
 <%= link_to "Back", "/" %>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
+
+  <%= link_to "Edit", edit_article_path(@article) %>
+  <%= link_to "Destroy", article_path(@article), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+                  } %>
 
 
-
-<% if @article.status == 'public' %>
-  <p style="color:green">Is Public Article </p>
-  <% else %>
-  <p style="color:red">Is Not a Public Article </p>
-<% end %>
+<p><i class="bi bi-pen-fill"></i> <%= @article.author_full_name %> </p>
 
 
 <h2>Comments</h2>

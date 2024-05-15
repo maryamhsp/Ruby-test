@@ -21,5 +21,11 @@
   <div>
   <%= form.label :status %><br>
   <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
+
+ <div>
+  <%= form.label :author_id %>
+  <%= form.select :author_id, Author.all.map { |author| [author.firstname, author.id] }, { prompt: 'Select Author' } %>
+</div>
+
 </div>
 <% end %>
