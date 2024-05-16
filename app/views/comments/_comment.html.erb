@@ -1,5 +1,5 @@
 <% unless comment.archived? %>
-<div style="border:1px dotted gray">
+<div style="border:1px dotted gray ; margin:6px ">
   <p>
     <strong>Commenter:</strong>
     <%= comment.commenter %>
@@ -10,7 +10,7 @@
     <%= comment.body %>
   </p>
   <p>
-    <%= link_to "Destroy Comment", [comment.article, comment], data: {
+    <%= link_to "Delete Comment", [comment.article, comment], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
                 } %>

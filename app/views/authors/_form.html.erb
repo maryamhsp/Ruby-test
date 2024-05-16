@@ -3,28 +3,23 @@
     <%= form.label :firstname %><br>
     <%= form.text_field :firstname %>
     <% author.errors.full_messages_for(:firstname).each do |message| %>
-      <div><%= message %></div>
+     <%= message %><br>
     <% end %>
-  </div>
-<div>
-    <%= form.label :lastname %><br>
+  
+    <br><%= form.label :lastname %><br>
     <%= form.text_field :lastname %>
     <% author.errors.full_messages_for(:lastname).each do |message| %>
-      <div><%= message %></div>
+      <%= message %>
     <% end %>
-  </div>
-  <div>
-    <%= form.label :email %><br>
+  
+    <br><%= form.label :email %><br>
     <%= form.text_field :email %><br>
     <% author.errors.full_messages_for(:email).each do |message| %>
-      <div><%= message %></div>
+      <%= message %>
     <% end %>
-  </div>
-  
-
-  <div>
+  <br><br>
     <%= form.submit %>
-  </div>
+  
   <div>
 
 </div>
