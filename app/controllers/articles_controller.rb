@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
     @article.save
     redirect_to @article
   end
+
   def edit
     @article = Article.find(params[:id])
   end
@@ -41,7 +42,7 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :body, :status)
+      params.require(:article).permit(:title, :body, :status, :author_id)
     end
 
 end

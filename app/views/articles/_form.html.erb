@@ -1,25 +1,24 @@
 <%= form_with model: article do |form| %>
-  <div>
+
+  <div style="padding:10px">
+
     <%= form.label :title %><br>
     <%= form.text_field :title %>
     <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
+     <%= message %>
+    <% end %><br>
+  
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
+    <%= message %>
     <% end %>
-  </div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %><br>
 
-  <div>
-    <%= form.submit %>
+    <%= form.label :author_id %><br>
+    <%= form.select :author_id, Author.all.map { |author| [author.firstname, author.id] }, { prompt: 'Select Author' } %><br><br>
+    <%= form.submit  %>
+  
   </div>
-  <div>
-  <%= form.label :status %><br>
-  <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
-</div>
 <% end %>

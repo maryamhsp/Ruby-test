@@ -19,6 +19,5 @@
     resources :articles do
         resources :comments
     end
-
-
+    resources :authors
 end

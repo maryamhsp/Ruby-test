@@ -1,0 +1,21 @@
+<h2>Author Details</h2>
+<div style="padding:20px ; background-color:beige">
+<p>Name: <b><%= @author.firstname %></b></p>
+<p>LastName:<b><%= @author.lastname %></b></p>
+<p>Email:<b> <%= @author.email %></b></p>
+
+<div style="border-top:1px solid black;padding:5px">
+<%= link_to "Back", authors_path %>
+  <%= link_to "Edit", edit_author_path(@author) %>
+  <%= link_to "Delete", author_path(@author), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
+</div>
+</div>
+
+<h4>Author Posts:</h4>
+<ul>
+<%= render @author.articles %>
+</ul>

@@ -1,5 +1,5 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <div style="border:1px solid gray;background-color:#44444444">
+  <div style="border:1px solid gray;background-color:#44444444 ; margin:10px ; padding:15px">
   <p>
     <%= form.label :commenter %><br>
     <%= form.text_field :commenter %>
@@ -8,14 +8,14 @@
     <%= form.label :body %><br>
     <%= form.text_area :body %>
   </p>
-  <p>
-    <%= form.submit %>
-  </p>
-  <p>
-  <p>This comment should be:</p>
-  <%= form.label :status %><br>
+ 
+  <p>This comment should be:
+  <%= form.label :status %>
   <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
 </p>
+ <p>
+    <%= form.submit %>
+  </p>
 </div>
 <% end %>
 

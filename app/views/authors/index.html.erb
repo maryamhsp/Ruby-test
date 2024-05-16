@@ -1,0 +1,27 @@
+<h1>List Of Authors</h1>
+
+<%= link_to "Create Author", new_author_path, class: "btn btn-primary"  %>
+
+
+<table class="table table-striped">
+  <% @authors.each do |author| %>
+  <tr>
+
+      <td>
+        <%=  author.firstname  %>
+      </td>
+      <td>
+        <%=  author.lastname  %>
+      </td>
+      <td>
+        <%=author.email %>
+      </td>
+      <td>
+      <%= link_to "Details", author%> 
+      </td>
+      </tr>
+    <% end %>
+  
+</table>
+
+<p></p>
